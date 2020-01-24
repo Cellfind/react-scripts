@@ -261,11 +261,6 @@ module.exports = function (webpackEnv) {
               ascii_only: true,
             },
           },
-          // Use multi-process parallel running to improve the build speed
-          // Default number of concurrent runs: os.cpus().length - 1
-          parallel: true,
-          // Enable file caching
-          cache: true,
           sourceMap: shouldUseSourceMap,
         }),
         // This is only used in production mode
@@ -283,6 +278,9 @@ module.exports = function (webpackEnv) {
               }
               : false,
           },
+          cssProcessorPluginOptions: {
+              preset: ['default', { minifyFontValues: { removeQuotes: false } }]
+          }
         }),
       ],
       // Automatically split vendor and commons
@@ -529,8 +527,9 @@ module.exports = function (webpackEnv) {
               use: getStyleLoaders({
                 importLoaders: 1,
                 sourceMap: isEnvProduction && shouldUseSourceMap,
-                modules: true,
-                getLocalIdent: getCSSModuleLocalIdent,
+                modules: {
+                  getLocalIdent: getCSSModuleLocalIdent,
+                },
               }),
             },
             // Opt-in support for SASS (using .scss or .sass extensions).
@@ -560,8 +559,9 @@ module.exports = function (webpackEnv) {
                 {
                   importLoaders: 2,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
-                  modules: true,
-                  getLocalIdent: getCSSModuleLocalIdent,
+                  modules: {
+                    getLocalIdent: getCSSModuleLocalIdent,
+                  },
                 },
                 'sass-loader'
               ),
