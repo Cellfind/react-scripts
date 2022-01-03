@@ -1,6 +1,6 @@
 {
   "name": "@cellfind/react-scripts",
-  "version": "4.0.5",
+  "version": "5.0.0",
   "description": "Configuration and scripts for Create React App.",
   "repository": {
     "type": "git",
@@ -28,9 +28,9 @@
   },
   "types": "./lib/react-app.d.ts",
   "dependencies": {
-    "@sentry/webpack-plugin": "^1.17.1",
-    "monaco-editor": "^0.27.0",
-    "monaco-editor-webpack-plugin": "^4.1.2",
+    "@sentry/webpack-plugin": "^1.18.3",
+    "monaco-editor": "^0.31.1",
+    "monaco-editor-webpack-plugin": "^7.0.1",
     "@babel/core": "7.14.2",
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.0-rc.3",
     "@svgr/webpack": "5.5.0",
